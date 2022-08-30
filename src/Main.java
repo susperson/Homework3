@@ -33,27 +33,37 @@ public class Main {
         int paperCount = 480;
 
         int studentsTotal = studentsLyudmilaPavlovna + studentsAnnaSergeevna + studentsEkaterinaAndreevna;
-        System.out.println("На каждого ученика рассчитано " + paperCount / studentsTotal + " листов бумаги.");
+        int paperPerStudent = paperCount / studentsTotal;
+        System.out.println("На каждого ученика рассчитано " + paperPerStudent + " листов бумаги.");
 
         //Задача 4
         System.out.println("\nЗадача 4");
         short bottles = 16;
         byte minutes = 2;
-        int capacity = bottles / minutes;
-        System.out.println("За 20 минут машина произвела бутылок " + capacity * 20 + " штук.");
-        System.out.println("За сутки машина произвела бутылок " + capacity * 24 * 60 + " штук.");
-        System.out.println("За 3 дня машина произвела бутылок " + capacity * 3 * 24 * 60 + " штук.");
-        System.out.println("За 1 месяц машина произвела бутылок " + capacity * 30 * 24 * 60 + " штук.");
+        int capacityPerMin = bottles / minutes;
+        int capacityPer20Min = capacityPerMin * 20;
+        int capacityPerHour = capacityPerMin * 60;
+        int capacityPer1Day = capacityPerHour * 24;
+        int capacityPer3Days = capacityPer1Day * 3;
+        int capacityPerMonth = capacityPer1Day * 30;
+
+        System.out.println("За 20 минут машина произвела бутылок " + capacityPer20Min + " штук.");
+        System.out.println("За сутки машина произвела бутылок " + capacityPer1Day + " штук.");
+        System.out.println("За 3 дня машина произвела бутылок " + capacityPer3Days + " штук.");
+        System.out.println("За 1 месяц машина произвела бутылок " + capacityPerMonth + " штук.");
 
         //Задача 5
         System.out.println("\nЗадача 5");
-        short whitePaint = 2;
-        short brownPaint = 4;
+        short whitePerClass = 2;
+        short brownPerClass = 4;
         short paintTotal = 120;
-        int paintForOneClassroom = whitePaint + brownPaint;
+        int paintForOneClassroom = whitePerClass + brownPerClass;
         int classrooms = paintTotal / paintForOneClassroom;
-        System.out.println("В школе, где " + classrooms + " классов, нужно " + classrooms * whitePaint +
-                " банок белой краски и " + classrooms * brownPaint + " банок коричневой краски");
+        int totalWhite = classrooms * whitePerClass;
+        int totalBrown = classrooms * brownPerClass;
+
+        System.out.println("В школе, где " + classrooms + " классов, нужно " + totalWhite +
+                " банок белой краски и " + totalBrown + " банок коричневой краски");
 
         //Задача 6
         System.out.println("\nЗадача 6");
@@ -67,12 +77,12 @@ public class Main {
         short oneEggWeight = 70;
 
         int bananasWeight = bananas * oneBananaWeight;
-        int milkWeight = milk * milk100mlWeight / 100;
+        float milkWeight = milk * milk100mlWeight / 100F;
         int icecreamWeight = icecream * oneIcecreamWeight;
         int eggsWeight = eggs * oneEggWeight;
 
-        int breakfastWeight = bananasWeight + milkWeight + icecreamWeight + eggsWeight;
-        float breakfastWeightKg = (float) breakfastWeight / 1000;
+        float breakfastWeight = bananasWeight + milkWeight + icecreamWeight + eggsWeight;
+        float breakfastWeightKg = breakfastWeight / 1000F;
 
         System.out.println("Общий вес спорт-завтрака: " + breakfastWeightKg + " кг.");
 
